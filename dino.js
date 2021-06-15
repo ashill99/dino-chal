@@ -3,12 +3,12 @@ const game = Runner.instance_;
 (function tick() {
   if (game.crashed || game.paused) {
     return requestAnimationFrame(tick);
-  }
+  };
 
 	let obstacles = game.horizon.obstacles;
 	let tRex = game.tRex;
 
-    if(obstacles.length) {
+    if (obstacles.length) {
         
     let obstacle = obstacles[0];
     let tRexWidth = tRex.config.WIDTH;
@@ -26,18 +26,13 @@ const game = Runner.instance_;
 
     if (obstacle.xPos - tRex.xPos - tRexWidth <= 20 && obstacle.yPos > 85) {
         if (!tRex.jumping) {
-            console.log("jump");
-            console.log(obstacle);
             jump();     
-        }
+        };
     } else if (obstacle.xPos - tRex.xPos - tRexWidth <= 20 && obstacle.yPos < 85) {
         if (!tRex.ducking) {
-            console.log("duck");
-            console.log(obstacle);
             duck();
-            console.log("get up")
-        }
-    }
+        };
+    };
 };
 
   requestAnimationFrame(tick);
